@@ -1,9 +1,21 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Home, Info, LogIn, UserPlus } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "sonner";
 
 const Navbar = () => {
+  const { user, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      toast.success("Successfully logged out!");
+    } catch (error) {
+      toast.error("Error signing out");
+    }
+  };
+
   return (
     <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,18 +45,31 @@ const Navbar = () => {
             <Link to="/contact" className="text-gray-700 hover:text-emerald-600 px-3 py-2">
               Contact
             </Link>
-            <Link to="/signup">
-              <Button variant="ghost" className="flex items-center">
-                <UserPlus className="w-4 h-4 mr-1" />
-                Sign Up
+            
+            {!user ? (
+              <>
+                <Link to="/signup">
+                  <Button variant="ghost" className="flex items-center">
+                    <UserPlus className="w-4 h-4 mr-1" />
+                    Sign Up
+                  </Button>
+                </Link>
+                <Link to="/login">
+                  <Button variant="default" className="flex items-center bg-emerald-600 hover:bg-emerald-700">
+                    <LogIn className="w-4 h-4 mr-1" />
+                    Log In
+                  </Button>
+                </Link>
+              </>
+            ) : (
+              <Button
+                onClick={handleSignOut}
+                variant="default"
+                className="flex items-center bg-emerald-600 hover:bg-emerald-700"
+              >
+                Sign Out
               </Button>
-            </Link>
-            <Link to="/login">
-              <Button variant="default" className="flex items-center bg-emerald-600 hover:bg-emerald-700">
-                <LogIn className="w-4 h-4 mr-1" />
-                Log In
-              </Button>
-            </Link>
+            )}
           </div>
 
           {/* Mobile menu button */}
