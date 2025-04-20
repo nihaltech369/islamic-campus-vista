@@ -1,6 +1,7 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
-import { Home, Info, LogIn, UserPlus } from "lucide-react";
+import { Home, Info, LogIn, UserPlus, UserRound } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
 
@@ -62,13 +63,21 @@ const Navbar = () => {
                 </Link>
               </>
             ) : (
-              <Button
-                onClick={handleSignOut}
-                variant="default"
-                className="flex items-center bg-emerald-600 hover:bg-emerald-700"
-              >
-                Sign Out
-              </Button>
+              <>
+                <Link to="/dashboard">
+                  <Button variant="ghost" className="flex items-center">
+                    <UserRound className="w-4 h-4 mr-1" />
+                    Dashboard
+                  </Button>
+                </Link>
+                <Button
+                  onClick={handleSignOut}
+                  variant="default"
+                  className="flex items-center bg-emerald-600 hover:bg-emerald-700"
+                >
+                  Sign Out
+                </Button>
+              </>
             )}
           </div>
 
