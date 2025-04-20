@@ -1,13 +1,13 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Home, Info, LogIn, UserPlus, UserRound } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
-
 const Navbar = () => {
-  const { user, signOut } = useAuth();
-
+  const {
+    user,
+    signOut
+  } = useAuth();
   const handleSignOut = async () => {
     try {
       await signOut();
@@ -16,9 +16,7 @@ const Navbar = () => {
       toast.error("Error signing out");
     }
   };
-
-  return (
-    <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+  return <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
@@ -47,8 +45,7 @@ const Navbar = () => {
               Contact
             </Link>
             
-            {!user ? (
-              <>
+            {!user ? <>
                 <Link to="/signup">
                   <Button variant="ghost" className="flex items-center">
                     <UserPlus className="w-4 h-4 mr-1" />
@@ -61,24 +58,17 @@ const Navbar = () => {
                     Log In
                   </Button>
                 </Link>
-              </>
-            ) : (
-              <>
+              </> : <>
                 <Link to="/dashboard">
-                  <Button variant="ghost" className="flex items-center">
+                  <Button variant="ghost" className="flex items-center text-base">
                     <UserRound className="w-4 h-4 mr-1" />
                     Dashboard
                   </Button>
                 </Link>
-                <Button
-                  onClick={handleSignOut}
-                  variant="default"
-                  className="flex items-center bg-emerald-600 hover:bg-emerald-700"
-                >
+                <Button onClick={handleSignOut} variant="default" className="flex items-center bg-emerald-600 hover:bg-emerald-700">
                   Sign Out
                 </Button>
-              </>
-            )}
+              </>}
           </div>
 
           {/* Mobile menu button */}
@@ -92,8 +82,6 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </nav>
-  );
+    </nav>;
 };
-
 export default Navbar;
