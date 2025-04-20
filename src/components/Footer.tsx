@@ -30,13 +30,13 @@ const Footer = () => {
             <h4 className="text-lg font-semibold text-white mb-4">Contact Us</h4>
             <div className="space-y-2 text-sm">
               <p>Email: info@alhikmah.edu</p>
-              <p>Phone: +1 (555) 123-4567</p>
-              <p>Address: 123 Knowledge Way, Wisdom City</p>
+              <p>Phone: +91 9645222427</p>
+              <p>Address: Beach road, Vatanappally, Thrissur, Kerala 680</p>
             </div>
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Al-Hikmah Campus. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} ISRA Vatanappally. All rights reserved.</p>
         </div>
       </div>
     </footer>
