@@ -1,8 +1,10 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Home, Info, LogIn, UserPlus, UserRound } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
+
 const Navbar = () => {
   const {
     user,
@@ -20,8 +22,12 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
-            <Link to="/" className="text-emerald-700 font-bold text-xl">
-              Al-Hikmah Campus
+            <Link to="/" className="flex items-center">
+              <img 
+                src="/lovable-uploads/6f76f565-df2d-489e-83ba-e8d89b60d009.png" 
+                alt="Al-Hikmah Campus Logo" 
+                className="h-12 w-auto mr-4"
+              />
             </Link>
           </div>
 
