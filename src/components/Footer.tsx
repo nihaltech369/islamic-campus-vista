@@ -29,7 +29,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold text-white mb-4">Contact Us</h4>
             <div className="space-y-2 text-sm">
-              <p>Email: info@alhikmah.edu</p>
+              <p>Email: isralabvty@gmail.com</p>
               <p>Phone: +91 9645222427</p>
               <p>Address: Beach road, Vatanappally, Thrissur, Kerala 680</p>
             </div>
