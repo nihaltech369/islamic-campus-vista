@@ -4,12 +4,19 @@ import EventCard from "@/components/EventCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import ProgramCard from "@/components/ProgramCard";
 import { Button } from "@/components/ui/button";
+import { useRef } from "react";
 
 const Index = () => {
+  const programsRef = useRef<HTMLDivElement>(null);
+
+  const scrollToPrograms = () => {
+    programsRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="min-h-screen">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-emerald-50 to-emerald-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,7 +27,10 @@ const Index = () => {
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               Where Islamic wisdom meets scientific excellence. Nurturing minds, enriching souls, and advancing knowledge for humanity.
             </p>
-            <Button className="bg-emerald-600 hover:bg-emerald-700 text-lg px-8 py-6">
+            <Button
+              className="bg-emerald-600 hover:bg-emerald-700 text-lg px-8 py-6"
+              onClick={scrollToPrograms}
+            >
               Explore Our Programs
             </Button>
           </div>
@@ -64,7 +74,7 @@ const Index = () => {
       </section>
 
       {/* Programs Section */}
-      <section className="py-16 bg-emerald-50">
+      <section id="our-programs" ref={programsRef} className="py-16 bg-emerald-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12">Our Programs</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
