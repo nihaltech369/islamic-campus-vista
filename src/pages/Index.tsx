@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import EventCard from "@/components/EventCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import ProgramCard from "@/components/ProgramCard";
+import ExternalLinks from "@/components/ExternalLinks";
 import { Button } from "@/components/ui/button";
 import { useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
@@ -135,6 +136,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* External Links Section */}
+      <ExternalLinks />
 
       {/* Testimonials Section */}
       <section className="py-16" ref={testimonialsAnimation.elementRef}>
