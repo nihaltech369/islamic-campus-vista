@@ -1,22 +1,33 @@
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EventCard from "@/components/EventCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import ProgramCard from "@/components/ProgramCard";
 import { Button } from "@/components/ui/button";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Index = () => {
   const programsRef = useRef<HTMLDivElement>(null);
+  const topRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    // Scroll to top when the route changes to home
+    if (location.pathname === '/') {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
 
   const scrollToPrograms = () => {
     programsRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" ref={topRef}>
       <Navbar />
-
+      
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-emerald-50 to-emerald-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
