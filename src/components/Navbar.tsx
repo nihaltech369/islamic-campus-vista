@@ -1,4 +1,3 @@
-
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Home, Info, Building, Phone, LogIn, UserPlus, UserRound, Menu, X } from "lucide-react";
@@ -26,39 +25,38 @@ const Navbar = () => {
     }
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  };
-  
   return (
     <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50" aria-label="Main Navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
-            <button 
-              onClick={scrollToTop} 
-              className="flex items-center focus:outline-none focus:ring-2 focus:ring-emerald-600" 
-              aria-label="Go to top of page"
+            <Link 
+              to="/" 
+              className="flex items-center focus:outline-none hover:opacity-90 transition-opacity"
             >
               <img 
                 src="/lovable-uploads/6f76f565-df2d-489e-83ba-e8d89b60d009.png" 
                 alt="Al-Hikmah Campus Logo" 
-                className="h-12 w-auto mr-4"
+                className="h-12 w-auto mr-4 hover:transform hover:scale-105 transition-transform duration-300"
               />
-            </button>
+            </Link>
           </div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link to="/" className={`flex items-center text-gray-700 hover:text-emerald-600 px-3 py-2 ${location.pathname === "/" ? "font-bold underline" : ""}`}>
+            <Link 
+              to="/" 
+              className={`flex items-center text-gray-700 hover:text-emerald-600 px-3 py-2 rounded-md transition-colors ${location.pathname === "/" ? "font-bold text-emerald-600" : ""}`}
+            >
               <Home className="w-4 h-4 mr-1" />
               Home
             </Link>
             {navLinks.map(link => (
-              <Link key={link.to} to={link.to} className={`flex items-center text-gray-700 hover:text-emerald-600 px-3 py-2 ${location.pathname === link.to ? "font-bold underline" : ""}`}>
+              <Link 
+                key={link.to} 
+                to={link.to} 
+                className={`flex items-center text-gray-700 hover:text-emerald-600 px-3 py-2 rounded-md transition-colors ${location.pathname === link.to ? "font-bold text-emerald-600" : ""}`}
+              >
                 <link.icon className="w-4 h-4 mr-1" />
                 {link.label}
               </Link>
@@ -66,13 +64,13 @@ const Navbar = () => {
             {!user ? (
               <>
                 <Link to="/signup">
-                  <Button variant="ghost" className="flex items-center">
+                  <Button variant="ghost" className="flex items-center hover:text-emerald-600">
                     <UserPlus className="w-4 h-4 mr-1" />
                     Sign Up
                   </Button>
                 </Link>
                 <Link to="/login">
-                  <Button variant="default" className="flex items-center bg-emerald-600 hover:bg-emerald-700">
+                  <Button variant="default" className="flex items-center bg-emerald-600 hover:bg-emerald-700 shadow-md hover:shadow-lg transition-all">
                     <LogIn className="w-4 h-4 mr-1" />
                     Log In
                   </Button>
@@ -81,12 +79,16 @@ const Navbar = () => {
             ) : (
               <>
                 <Link to="/dashboard">
-                  <Button variant="ghost" className="flex items-center text-base">
+                  <Button variant="ghost" className="flex items-center text-base hover:text-emerald-600">
                     <UserRound className="w-4 h-4 mr-1" />
                     Dashboard
                   </Button>
                 </Link>
-                <Button onClick={handleSignOut} variant="default" className="flex items-center bg-emerald-600 hover:bg-emerald-700">
+                <Button 
+                  onClick={handleSignOut} 
+                  variant="default" 
+                  className="flex items-center bg-emerald-600 hover:bg-emerald-700 shadow-md hover:shadow-lg transition-all"
+                >
                   Sign Out
                 </Button>
               </>
