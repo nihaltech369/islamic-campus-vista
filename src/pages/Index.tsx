@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EventCard from "@/components/EventCard";
@@ -7,14 +6,19 @@ import ProgramCard from "@/components/ProgramCard";
 import { Button } from "@/components/ui/button";
 import { useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Index = () => {
   const programsRef = useRef<HTMLDivElement>(null);
   const topRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
+  const featuresAnimation = useScrollAnimation();
+  const programsAnimation = useScrollAnimation();
+  const eventsAnimation = useScrollAnimation();
+  const testimonialsAnimation = useScrollAnimation();
+
   useEffect(() => {
-    // Scroll to top when the route changes to home
     if (location.pathname === '/') {
       window.scrollTo(0, 0);
     }
@@ -28,10 +32,10 @@ const Index = () => {
     <div className="min-h-screen" ref={topRef}>
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-emerald-50 to-emerald-100">
+      {/* Hero Section with enhanced gradient */}
+      <section className="pt-24 pb-16 bg-gradient-to-br from-emerald-50 via-emerald-100 to-emerald-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+          <div className="text-center animate-fade-up">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
               Welcome to ISRA Vatanappally
             </h1>
@@ -39,7 +43,7 @@ const Index = () => {
               Where Islamic wisdom meets scientific excellence. Nurturing minds, enriching souls, and advancing knowledge for humanity.
             </p>
             <Button
-              className="bg-emerald-600 hover:bg-emerald-700 text-lg px-8 py-6"
+              className="bg-emerald-600 hover:bg-emerald-700 text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300"
               onClick={scrollToPrograms}
             >
               Explore Our Programs
@@ -49,9 +53,9 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">Why to choose ISRA?</h2>
+      <section className="py-16" ref={featuresAnimation.elementRef}>
+        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${featuresAnimation.isVisible ? 'animate-scale-up' : 'opacity-0'}`}>
+          <h2 className="text-3xl font-bold text-center mb-12">Why Choose ISRA?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center p-6">
               <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -74,7 +78,7 @@ const Index = () => {
             <div className="text-center p-6">
               <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20h-8m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20h2m10 0v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-2">Global Community</h3>
@@ -85,8 +89,8 @@ const Index = () => {
       </section>
 
       {/* Programs Section */}
-      <section id="our-programs" ref={programsRef} className="py-16 bg-emerald-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="our-programs" ref={programsAnimation.elementRef} className="py-16 bg-emerald-50">
+        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${programsAnimation.isVisible ? 'animate-scale-up' : 'opacity-0'}`}>
           <h2 className="text-3xl font-bold text-center mb-12">Our Programs</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <ProgramCard
@@ -109,8 +113,8 @@ const Index = () => {
       </section>
 
       {/* Events Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-gray-50" ref={eventsAnimation.elementRef}>
+        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${eventsAnimation.isVisible ? 'animate-scale-up' : 'opacity-0'}`}>
           <h2 className="text-3xl font-bold text-center mb-12">Upcoming Events</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <EventCard
@@ -133,8 +137,8 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16" ref={testimonialsAnimation.elementRef}>
+        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${testimonialsAnimation.isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
           <h2 className="text-3xl font-bold text-center mb-12">What Our Students Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <TestimonialCard
