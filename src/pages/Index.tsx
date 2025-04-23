@@ -93,6 +93,12 @@ const Index = () => {
               description="Study Islamic banking, finance, and economics principles in today's global context."
               duration="18 Months"
             />
+            <ProgramCard
+            Science & Spirituality
+              Explore the harmony between modern science and Islamic principles.
+              Duration: 6 Months
+            />
+
           </div>
         </div>
       </section>
