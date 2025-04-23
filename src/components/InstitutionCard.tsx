@@ -24,7 +24,7 @@ export default function InstitutionCard({ name, logo, description, link }: Insti
             loading="lazy"
             aria-hidden="true"
           />
-          <CardTitle as="h2" className="text-xl">{name}</CardTitle>
+          <CardTitle className="text-xl">{name}</CardTitle>
         </div>
       </CardHeader>
       <CardContent>
