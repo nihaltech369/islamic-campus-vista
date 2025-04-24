@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EventCard from "@/components/EventCard";
@@ -5,19 +6,19 @@ import TestimonialCard from "@/components/TestimonialCard";
 import ProgramCard from "@/components/ProgramCard";
 import ExternalLinks from "@/components/ExternalLinks";
 import { Button } from "@/components/ui/button";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Index = () => {
   const programsRef = useRef<HTMLDivElement>(null);
   const topRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
-
-  const featuresAnimation = useScrollAnimation();
-  const programsAnimation = useScrollAnimation();
-  const eventsAnimation = useScrollAnimation();
-  const testimonialsAnimation = useScrollAnimation();
+  
+  // Added state for each section's visibility
+  const [featuresVisible, setFeaturesVisible] = useState(false);
+  const [programsVisible, setProgramsVisible] = useState(false);
+  const [eventsVisible, setEventsVisible] = useState(false);
+  const [testimonialsVisible, setTestimonialsVisible] = useState(false);
 
   useEffect(() => {
     if (location.pathname === '/') {
@@ -25,8 +26,80 @@ const Index = () => {
     }
   }, [location]);
 
+  useEffect(() => {
+    // Create intersection observer for animations
+    const observerOptions = {
+      threshold: 0.2, // Trigger when at least 20% of the element is visible
+      rootMargin: '-10px'
+    };
+
+    const handleIntersection = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      entries.forEach(entry => {
+        const sectionId = entry.target.getAttribute('data-section');
+        
+        if (entry.isIntersecting) {
+          // Set visibility state based on section ID
+          switch(sectionId) {
+            case 'features':
+              setFeaturesVisible(true);
+              break;
+            case 'programs':
+              setProgramsVisible(true);
+              break;
+            case 'events':
+              setEventsVisible(true);
+              break;
+            case 'testimonials':
+              setTestimonialsVisible(true);
+              break;
+            default:
+              break;
+          }
+        } else {
+          // Reset visibility when element is out of view to enable repeated animations
+          switch(sectionId) {
+            case 'features':
+              setFeaturesVisible(false);
+              break;
+            case 'programs':
+              setProgramsVisible(false);
+              break;
+            case 'events':
+              setEventsVisible(false);
+              break;
+            case 'testimonials':
+              setTestimonialsVisible(false);
+              break;
+            default:
+              break;
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, observerOptions);
+    
+    // Get all sections that need animation
+    const sections = document.querySelectorAll('[data-section]');
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    return () => {
+      // Cleanup observer on component unmount
+      sections.forEach(section => {
+        observer.unobserve(section);
+      });
+    };
+  }, []);
+
   const scrollToPrograms = () => {
-    programsRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (programsRef.current) {
+      programsRef.current.scrollIntoView({ 
+        behavior: "smooth",
+        block: "start"
+      });
+    }
   };
 
   return (
@@ -54,8 +127,8 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-16" ref={featuresAnimation.elementRef}>
-        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${featuresAnimation.isVisible ? 'animate-scale-up' : 'opacity-0'}`}>
+      <section data-section="features" className="py-16">
+        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${featuresVisible ? 'animate-scale-up' : 'opacity-0 transform scale-90'}`}>
           <h2 className="text-3xl font-bold text-center mb-12">Why Choose ISRA?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center p-6">
@@ -90,8 +163,8 @@ const Index = () => {
       </section>
 
       {/* Programs Section */}
-      <section id="our-programs" ref={programsAnimation.elementRef} className="py-16 bg-emerald-50">
-        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${programsAnimation.isVisible ? 'animate-scale-up' : 'opacity-0'}`}>
+      <section id="our-programs" data-section="programs" className="py-16 bg-emerald-50" ref={programsRef}>
+        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${programsVisible ? 'animate-scale-up' : 'opacity-0 transform scale-90'}`}>
           <h2 className="text-3xl font-bold text-center mb-12">Our Programs</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <ProgramCard
@@ -114,8 +187,8 @@ const Index = () => {
       </section>
 
       {/* Events Section */}
-      <section className="py-16 bg-gray-50" ref={eventsAnimation.elementRef}>
-        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${eventsAnimation.isVisible ? 'animate-scale-up' : 'opacity-0'}`}>
+      <section data-section="events" className="py-16 bg-gray-50">
+        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${eventsVisible ? 'animate-scale-up' : 'opacity-0 transform scale-90'}`}>
           <h2 className="text-3xl font-bold text-center mb-12">Upcoming Events</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <EventCard
@@ -141,8 +214,8 @@ const Index = () => {
       <ExternalLinks />
 
       {/* Testimonials Section */}
-      <section className="py-16" ref={testimonialsAnimation.elementRef}>
-        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${testimonialsAnimation.isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
+      <section data-section="testimonials" className="py-16">
+        <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${testimonialsVisible ? 'animate-fade-up' : 'opacity-0 transform translateY(20px)'}`}>
           <h2 className="text-3xl font-bold text-center mb-12">What Our Students Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <TestimonialCard
