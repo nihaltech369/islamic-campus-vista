@@ -11,15 +11,15 @@ const institutions = [
     link: "#",
   },
   {
-    name: "Quran Research Institute",
+    name: "Twiaba Garden Women’s Village",
     logo: "https://images.unsplash.com/photo-1466442929976-97f336a657be?auto=format&fit=facearea&w=96&q=80",
-    description: "Focuses on Quranic sciences, exegesis, and interfaith studies for a global student body.",
+    description: "Focuses on Quranic sciences, exegesis, and interfaith studies for girls.",
     link: "#",
   },
   {
-    name: "Institute of Islamic Economics",
+    name: "Noorul uloom madrasa",
     logo: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=facearea&w=96&q=80",
-    description: "Pioneering research in Sharia-compliant economic models and Islamic finance education.",
+    description: "focus on islamic studies, studies in quran.",
     link: "#",
   },
 ];
