@@ -39,6 +39,12 @@ const Index = () => {
       entries.forEach(entry => {
         const sectionId = entry.target.getAttribute('data-section');
         
+        console.log(`Intersection for section ${sectionId}:`, {
+          isIntersecting: entry.isIntersecting,
+          intersectionRatio: entry.intersectionRatio,
+          isMobile: isMobile
+        });
+        
         if (entry.isIntersecting) {
           // Set visibility state based on section ID
           switch(sectionId) {
@@ -240,4 +246,3 @@ const Index = () => {
 };
 
 export default Index;
-
