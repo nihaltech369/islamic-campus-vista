@@ -95,19 +95,19 @@ const Index = () => {
           <h2 className="text-3xl font-bold text-center mb-12">Our Programs</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <ProgramCard
-              title="Islamic Studies Diploma"
-              description="A comprehensive program covering Quran, Hadith, Fiqh, and Islamic history with modern perspectives."
-              duration="2 Years"
+              title="Mazharul Quran Academy"
+              description="teaches Quran memorization using modern and traditional techniques."
+              duration=""
             />
             <ProgramCard
-              title="Arabic Language Program"
-              description="Master classical and modern Arabic through an intensive curriculum designed for all levels."
-              duration="1 Year"
+              title="Imam Gazzali Model Academy"
+              description="offers a blended curriculum of science, modern education, and Islamic studies for 8th standard students"
+              duration="3 Year"
             />
             <ProgramCard
-              title="Islamic Finance & Economics"
-              description="Study Islamic banking, finance, and economics principles in today's global context."
-              duration="18 Months"
+              title="College of Jamia Madeenathunnoor"
+              description="provides a five-year course combining Islamic and secular education."
+              duration="2 year hss\3 year degree"
             />
           </div>
         </div>
@@ -119,9 +119,9 @@ const Index = () => {
           <h2 className="text-3xl font-bold text-center mb-12">Upcoming Events</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <EventCard
-              title="Islamic Science Symposium"
-              date="May 15, 2024"
-              description="Join leading scholars in discussing the intersection of Islamic teachings and modern scientific discoveries."
+              title="Brainiacs"
+              date="April 25-29, 2025"
+              description="a campus science fest."
             />
             <EventCard
               title="AI in Islamic Studies Workshop"
