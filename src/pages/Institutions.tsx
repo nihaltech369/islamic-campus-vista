@@ -6,7 +6,7 @@ import InstitutionCard from "@/components/InstitutionCard";
 const institutions = [
   {
     name: "ISRA Vatanappally",
-    logo: "https://images.unsplash.com/photo-1466442929976-97f336a657be?auto=format&fit=facearea&w=96&q=80",
+    logo: "/lovable-uploads/0ff41a2d-5d58-4ba5-8cf0-867734022134.png",
     description: "Advancing breakthrough scientific research and education in an Islamic ethical framework.",
     link: "#",
   },
