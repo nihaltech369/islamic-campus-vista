@@ -8,11 +8,13 @@ import ExternalLinks from "@/components/ExternalLinks";
 import { Button } from "@/components/ui/button";
 import { useRef, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
   const programsRef = useRef<HTMLDivElement>(null);
   const topRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+  const isMobile = useIsMobile();
   
   // Added state for each section's visibility
   const [featuresVisible, setFeaturesVisible] = useState(false);
@@ -29,8 +31,8 @@ const Index = () => {
   useEffect(() => {
     // Create intersection observer for animations
     const observerOptions = {
-      threshold: 0.2, // Trigger when at least 20% of the element is visible
-      rootMargin: '-10px'
+      threshold: isMobile ? 0.1 : 0.2, // Lower threshold for mobile
+      rootMargin: isMobile ? '-50px' : '-10px' // More lenient margin for mobile
     };
 
     const handleIntersection = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
@@ -91,7 +93,7 @@ const Index = () => {
         observer.unobserve(section);
       });
     };
-  }, []);
+  }, [isMobile]);
 
   const scrollToPrograms = () => {
     if (programsRef.current) {
@@ -238,3 +240,4 @@ const Index = () => {
 };
 
 export default Index;
+
