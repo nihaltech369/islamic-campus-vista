@@ -1,6 +1,7 @@
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface InstitutionCardProps {
   name: string;
@@ -10,6 +11,12 @@ interface InstitutionCardProps {
 }
 
 export default function InstitutionCard({ name, logo, description, link }: InstitutionCardProps) {
+  // Convert institution name to URL-friendly format
+  const getInstitutionId = (name: string) => {
+    if (name.includes("ISRA")) return "/";
+    return `/institution/${name.toLowerCase().replace(/ /g, "-")}`;
+  };
+
   return (
     <Card
       className="hover:shadow-lg transition-shadow h-full aria-[selected=true]:ring-2 aria-[selected=true]:ring-emerald-500"
@@ -29,15 +36,15 @@ export default function InstitutionCard({ name, logo, description, link }: Insti
       </CardHeader>
       <CardContent>
         <p className="text-gray-700 mb-4">{description}</p>
-        <a
-          href={link}
+        <Link
+          to={getInstitutionId(name)}
           className="inline-flex items-center text-emerald-700 hover:underline font-semibold"
           aria-label={`Learn more about ${name}`}
           tabIndex={0}
         >
           Learn More 
           <ArrowRight className="ml-1 w-4 h-4" />
-        </a>
+        </Link>
       </CardContent>
     </Card>
   );
