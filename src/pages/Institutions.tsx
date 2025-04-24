@@ -5,13 +5,13 @@ import InstitutionCard from "@/components/InstitutionCard";
 
 const institutions = [
   {
-    name: "Al-Hikmah Science Institute",
+    name: "ISRA Vatanappally",
     logo: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=facearea&w=96&q=80",
     description: "Advancing breakthrough scientific research and education in an Islamic ethical framework.",
     link: "#",
   },
   {
-    name: "Darul Quran Center",
+    name: "",
     logo: "https://images.unsplash.com/photo-1466442929976-97f336a657be?auto=format&fit=facearea&w=96&q=80",
     description: "Focuses on Quranic sciences, exegesis, and interfaith studies for a global student body.",
     link: "#",
