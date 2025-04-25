@@ -229,7 +229,7 @@ const Index = () => {
             <TestimonialCard
               name="Mahroof Abdullah"
               role="BA History"
-              content="ISRA Campus has provided me with the perfect environment to achieve my goals."
+              content="ISRA is my favourate institution. behind my growth and achievments, there has been a great support from the staff and managment here."
             />
             <TestimonialCard
               name="Shamil Hassainar"
