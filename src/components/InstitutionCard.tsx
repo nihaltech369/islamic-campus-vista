@@ -11,14 +11,6 @@ interface InstitutionCardProps {
 }
 
 export default function InstitutionCard({ name, logo, description, link }: InstitutionCardProps) {
-  // Convert institution name to URL-friendly format
-  const getInstitutionId = (name: string) => {
-    if (name.includes("ISRA")) return "/";
-    
-    // Convert to lowercase, replace spaces with hyphens, and remove special characters
-    return `/institution/${name.toLowerCase().replace(/[^a-z0-9 -]/g, '').replace(/\s+/g, '-')}`;
-  };
-
   return (
     <Card
       className="hover:shadow-lg transition-shadow h-full aria-[selected=true]:ring-2 aria-[selected=true]:ring-emerald-500"
@@ -39,7 +31,7 @@ export default function InstitutionCard({ name, logo, description, link }: Insti
       <CardContent>
         <p className="text-gray-700 mb-4">{description}</p>
         <Link
-          to={getInstitutionId(name)}
+          to={link}
           className="inline-flex items-center text-emerald-700 hover:underline font-semibold"
           aria-label={`Learn more about ${name}`}
           tabIndex={0}
