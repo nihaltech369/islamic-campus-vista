@@ -14,7 +14,9 @@ export default function InstitutionCard({ name, logo, description, link }: Insti
   // Convert institution name to URL-friendly format
   const getInstitutionId = (name: string) => {
     if (name.includes("ISRA")) return "/";
-    return `/institution/${name.toLowerCase().replace(/ /g, "-")}`;
+    
+    // Convert to lowercase, replace spaces with hyphens, and remove special characters
+    return `/institution/${name.toLowerCase().replace(/[^a-z0-9 -]/g, '').replace(/\s+/g, '-')}`;
   };
 
   return (

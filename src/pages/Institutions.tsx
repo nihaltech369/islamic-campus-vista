@@ -8,19 +8,19 @@ const institutions = [
     name: "ISRA Vatanappally",
     logo: "/lovable-uploads/0ff41a2d-5d58-4ba5-8cf0-867734022134.png",
     description: "Advancing breakthrough scientific research and education in an Islamic ethical framework.",
-    link: "#",
+    link: "/",
   },
   {
-    name: "Twiaba Garden Women’s Village",
+    name: "Twiaba Garden Women's Village",
     logo: "https://images.unsplash.com/photo-1466442929976-97f336a657be?auto=format&fit=facearea&w=96&q=80",
     description: "Focuses on Quranic sciences, exegesis, and interfaith studies for girls.",
-    link: "#",
+    link: "/institution/twiaba-garden",
   },
   {
     name: "Noorul uloom madrasa",
     logo: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=facearea&w=96&q=80",
     description: "focus on islamic studies, studies in quran.",
-    link: "#",
+    link: "/institution/noorul-uloom",
   },
 ];
 
