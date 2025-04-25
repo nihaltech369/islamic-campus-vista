@@ -227,14 +227,14 @@ const Index = () => {
           <h2 className="text-3xl font-bold text-center mb-12">What Our Students Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <TestimonialCard
-              name="Ahmad Hassan"
-              role="PhD Student, Islamic AI Research"
-              content="Al-Hikmah Campus has provided me with the perfect environment to pursue my research in artificial intelligence while staying true to Islamic principles."
+              name="Mahroof Abdullah"
+              role="BA History"
+              content="ISRA Campus has provided me with the perfect environment to achieve my goals."
             />
             <TestimonialCard
-              name="Fatima Ali"
-              role="BSc Computer Science"
-              content="The blend of Islamic values and modern technology education here is unique. I've grown both spiritually and professionally."
+              name="Shamil Hassainar"
+              role="BA History"
+              content="The blend of Islamic values and academic in history here is unique. I've grown both spiritually and professionally."
             />
           </div>
         </div>
