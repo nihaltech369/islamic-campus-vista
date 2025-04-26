@@ -1,5 +1,5 @@
-
 import { Link } from "react-router-dom";
+import { Facebook, Instagram, Youtube } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -35,8 +35,37 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} ISRA Vatanappally. All rights reserved.</p>
+        <div className="flex flex-col items-center mt-8 pt-8 border-t border-gray-800">
+          <div className="flex gap-6 mb-4">
+            <a
+              href="https://www.facebook.com/ISRAVTP/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors"
+              aria-label="Visit our Facebook page"
+            >
+              <Facebook className="w-6 h-6" />
+            </a>
+            <a
+              href="https://www.instagram.com/isra_vatanappally/#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors"
+              aria-label="Visit our Instagram page"
+            >
+              <Instagram className="w-6 h-6" />
+            </a>
+            <a
+              href="https://www.youtube.com/@isra_media"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors"
+              aria-label="Visit our YouTube channel"
+            >
+              <Youtube className="w-6 h-6" />
+            </a>
+          </div>
+          <p className="text-sm">&copy; {new Date().getFullYear()} ISRA Vatanappally. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useParams, Navigate, Link } from "react-router-dom";
@@ -88,9 +87,8 @@ export default function InstitutionDetails() {
   const { id } = useParams();
   const institution = id ? institutionsData[id as keyof typeof institutionsData] : null;
   const [activeImage, setActiveImage] = useState(0);
-
-  // Animation effect when component loads
   const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
     setIsVisible(true);
   }, []);
@@ -104,7 +102,6 @@ export default function InstitutionDetails() {
       <Navbar />
       <main className="flex-1 pt-24 pb-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Back button */}
           <div className="mb-8">
             <Link to="/institutions" className="inline-flex items-center text-emerald-700 hover:text-emerald-600 transition-colors">
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -112,7 +109,6 @@ export default function InstitutionDetails() {
             </Link>
           </div>
           
-          {/* Hero section */}
           <div className="bg-white rounded-xl shadow-md overflow-hidden mb-10">
             <div className="md:flex">
               <div className="md:w-1/2 p-8">
@@ -160,7 +156,6 @@ export default function InstitutionDetails() {
             </div>
           </div>
           
-          {/* Institution details cards */}
           <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <Card>
               <CardContent className="pt-6">
@@ -204,7 +199,6 @@ export default function InstitutionDetails() {
             </Card>
           </div>
           
-          {/* Facilities section */}
           <div className={`mb-10 transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="flex items-center gap-3 mb-6">
               <Book className="h-6 w-6 text-emerald-600" />
@@ -224,20 +218,21 @@ export default function InstitutionDetails() {
             </div>
           </div>
           
-          {/* CTA Section */}
-          <div className={`bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl p-8 text-white text-center transition-all duration-700 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h2 className="text-2xl font-bold mb-4">Interested in Learning More?</h2>
-            <p className="mb-6 max-w-xl mx-auto">Join our community of learners and embark on a journey of knowledge and spiritual growth.</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="outline" className="bg-white text-emerald-700 hover:bg-gray-100">
-                <Info className="mr-2 h-4 w-4" />
-                Request Information
-              </Button>
-              <Button className="bg-emerald-700 hover:bg-emerald-800">
-                Apply Now
-              </Button>
+          {id === "isra-vatanappally" && (
+            <div className={`bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl p-8 text-white text-center transition-all duration-700 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <h2 className="text-2xl font-bold mb-4">Interested in Learning More?</h2>
+              <p className="mb-6 max-w-xl mx-auto">Join our community of learners and embark on a journey of knowledge and spiritual growth.</p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button variant="outline" className="bg-white text-emerald-700 hover:bg-gray-100">
+                  <Info className="mr-2 h-4 w-4" />
+                  Request Information
+                </Button>
+                <Button className="bg-emerald-700 hover:bg-emerald-800">
+                  Apply Now
+                </Button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </main>
       <Footer />
