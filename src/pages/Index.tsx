@@ -201,18 +201,18 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <EventCard
               title="Brainiacs"
-              date="April 25-29, 2025"
+              date="April 26-29, 2025"
               description="a campus science fest."
             />
             <EventCard
-              title="AI in Islamic Studies Workshop"
-              date="May 20, 2024"
-              description="Learn how artificial intelligence is revolutionizing Islamic research and studies."
+              title="Ziyarath trip"
+              date="April 29, 2025"
+              description="A spiritual and knowledge seeking trip with entertainment for students."
             />
             <EventCard
-              title="International Students Day"
-              date="May 25, 2024"
-              description="Celebrate diversity and cultural exchange with students from over 50 countries."
+              title="Ice bracking"
+              date="June 1, 2025"
+              description="A session for getting familiar with new students."
             />
           </div>
         </div>
