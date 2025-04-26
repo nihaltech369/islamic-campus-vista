@@ -210,7 +210,7 @@ const Index = () => {
               description="A spiritual and knowledge seeking trip with entertainment for students."
             />
             <EventCard
-              title="Ice bracking"
+              title="Ice breaking"
               date="June 1, 2025"
               description="A session for getting familiar with new students."
             />
