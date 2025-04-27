@@ -155,7 +155,7 @@ const Index = () => {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-2">Scientific Research</h3>
-              <p className="text-gray-600">Cutting-edge research facilities and collaboration opportunities with global institutions.</p>
+              <p className="text-gray-600">Cutting-edge research facilities and collaboration opportunities with Talrop.</p>
             </div>
             <div className="text-center p-6">
               <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -164,7 +164,7 @@ const Index = () => {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-2">Global Community</h3>
-              <p className="text-gray-600">Join a diverse community of scholars and students from around the world.</p>
+              <p className="text-gray-600">Join a diverse community of scholars and students.</p>
             </div>
           </div>
         </div>
@@ -202,7 +202,7 @@ const Index = () => {
             <EventCard
               title="Brainiacs"
               date="April 26-29, 2025"
-              description="a campus science fest."
+              description="a campus science and tech fete."
             />
             <EventCard
               title="Ziyarath trip"
