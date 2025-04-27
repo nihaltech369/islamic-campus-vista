@@ -7,7 +7,7 @@ const institutions = [
   {
     name: "ISRA Vatanappally",
     logo: "/lovable-uploads/0ff41a2d-5d58-4ba5-8cf0-867734022134.png",
-    description: "Advancing breakthrough scientific research and education in an Islamic ethical framework.",
+    description: "main campus for boys with spiritual environment and maintaining islamic culture throughout the learning years.",
     link: "/",
   },
   {
