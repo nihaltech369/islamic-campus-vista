@@ -86,7 +86,6 @@ const institutionsData = {
 export default function InstitutionDetails() {
   const { id } = useParams();
   const institution = id ? institutionsData[id as keyof typeof institutionsData] : null;
-  const [activeImage, setActiveImage] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -110,48 +109,21 @@ export default function InstitutionDetails() {
           </div>
           
           <div className="bg-white rounded-xl shadow-md overflow-hidden mb-10">
-            <div className="md:flex">
-              <div className="md:w-1/2 p-8">
-                <div className={`flex items-center gap-6 mb-6 transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-                  <img
-                    src={institution.logo}
-                    alt={`${institution.name} Logo`}
-                    className="h-24 w-24 rounded-full object-cover border-4 border-emerald-100 shadow-md"
-                  />
-                  <h1 className="text-4xl font-bold text-gray-900">{institution.name}</h1>
-                </div>
-                <div className={`prose prose-emerald max-w-none transition-transform duration-700 delay-300 ${isVisible ? 'translate-y-0' : 'translate-y-10'}`}>
-                  {institution.detailedDescription.split('\n\n').map((paragraph, index) => (
-                    <p key={index} className="text-gray-700 mb-4">
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
+            <div className="p-8">
+              <div className={`flex items-center gap-6 mb-6 transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+                <img
+                  src={institution.logo}
+                  alt={`${institution.name} Logo`}
+                  className="h-24 w-24 rounded-full object-cover border-4 border-emerald-100 shadow-md"
+                />
+                <h1 className="text-4xl font-bold text-gray-900">{institution.name}</h1>
               </div>
-              <div className="md:w-1/2 relative">
-                {institution.imageGallery && institution.imageGallery.length > 0 && (
-                  <>
-                    <div className="h-80 md:h-full overflow-hidden">
-                      <img 
-                        src={institution.imageGallery[activeImage]} 
-                        alt={institution.name}
-                        className="w-full h-full object-cover transition-opacity duration-500"
-                      />
-                    </div>
-                    {institution.imageGallery.length > 1 && (
-                      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-                        {institution.imageGallery.map((_, index) => (
-                          <button 
-                            key={index}
-                            onClick={() => setActiveImage(index)}
-                            className={`w-3 h-3 rounded-full ${activeImage === index ? 'bg-white' : 'bg-white/50'}`}
-                            aria-label={`View image ${index + 1}`}
-                          />
-                        ))}
-                      </div>
-                    )}
-                  </>
-                )}
+              <div className={`prose prose-emerald max-w-none transition-transform duration-700 delay-300 ${isVisible ? 'translate-y-0' : 'translate-y-10'}`}>
+                {institution.detailedDescription.split('\n\n').map((paragraph, index) => (
+                  <p key={index} className="text-gray-700 mb-4">
+                    {paragraph}
+                  </p>
+                ))}
               </div>
             </div>
           </div>
