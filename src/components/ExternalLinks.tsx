@@ -6,9 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 const ExternalLinks = () => {
   const links = [
     {
-      title: "Learning Portal",
-      description: "Access our comprehensive learning resources and courses",
-      url: "#",
+      title: "Isra Media",
+      description: "Access our media to explore the garden of Isra",
+      url: "https://www.youtube.com/@isra_media",
     },
     {
       title: "Islamic Wiki",
@@ -18,7 +18,7 @@ const ExternalLinks = () => {
     {
       title: "ISRA Workspace",
       description: "Collaborate and work in our digital workspace",
-      url: "#",
+      url: "https://zg6zpmxvzbrjbjbi0fewdq.on.drv.tw/www.israworkspace.com/",
     },
   ];
 
