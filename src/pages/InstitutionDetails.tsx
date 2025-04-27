@@ -22,8 +22,8 @@ const institutionsData = {
       - Arabic Language and Literature
       - Contemporary Islamic Studies
     `,
-    founded: "2005",
-    location: "Kerala, India",
+    founded: "2010",
+    location: "Vatanappally, Thrissur, Kerala, India",
     faculty: "23 distinguished scholars and educators",
     students: "Over 150 students from diverse backgrounds",
     facilities: [
