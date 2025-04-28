@@ -13,7 +13,7 @@ const ExternalLinks = () => {
     {
       title: "ISRA Learnig portal",
       description: "Explore our extensive Islamic knowledge portal",
-      url: "https://stunning-sawine-b97dc8.netlify.app/materials",
+      url: "https://isralearningportal.netlify.app/materials",
     },
     {
       title: "ISRA Workspace",
