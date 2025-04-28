@@ -11,9 +11,9 @@ const ExternalLinks = () => {
       url: "https://www.youtube.com/@isra_media",
     },
     {
-      title: "Islamic Wiki",
-      description: "Explore our extensive Islamic knowledge database",
-      url: "#",
+      title: "ISRA Learnig portal",
+      description: "Explore our extensive Islamic knowledge portal",
+      url: "",
     },
     {
       title: "ISRA Workspace",
