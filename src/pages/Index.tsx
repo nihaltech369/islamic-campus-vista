@@ -235,7 +235,7 @@ const Index = () => {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-center mb-3">Research Publications</h3>
-              <p className="text-gray-600 text-center">Over 50 research papers published in renowned journals.</p>
+              <p className="text-gray-600 text-center">research papers published in renowned journals.</p>
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
